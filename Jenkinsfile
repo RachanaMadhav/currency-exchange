@@ -9,7 +9,7 @@ pipeline {
                              sh 'mvn --version'
                              sh 'docker version'
 			     sh 'gcloud version'
-			     sh 'kubectl --client'	     
+			    	     
 			    
                              echo "Build" 
                              echo "PATH - $PATH"
