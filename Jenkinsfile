@@ -2,7 +2,11 @@ pipeline {
   agent {
     label 'jave-docker-slave'
   }
-              //agent{ docker {image 'maven:3.6.3'}}
+  environment{ 
+		mavenHome = tool 'myMaven'
+		PATH = "$mavenHome/bin:$PATH"
+	}
+
                           
               stages{
               stage('Checkout') {
