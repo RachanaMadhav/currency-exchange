@@ -2,6 +2,11 @@ pipeline {
   agent {
     label 'java-docker-slave'
   }
+	environment{ 
+		mavenHome = tool 'myMaven'
+		PATH = "$mavenHome/bin:$PATH"
+	}
+
                           
               stages{
               stage('Checkout') {
