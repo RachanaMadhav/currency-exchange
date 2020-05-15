@@ -1,11 +1,9 @@
 pipeline {
-              agent any
+  agent {
+    label 'jave-docker-slave'
+  }
               //agent{ docker {image 'maven:3.6.3'}}
-                             environment{
-                                           dockerHome=  tool 'myDocker'
-                                           mavenHome= tool 'myMaven'
-                                           PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-                             }
+                          
               stages{
               stage('Checkout') {
                              steps{   
@@ -37,7 +35,7 @@ pipeline {
                              {
                                            steps{
                                                           script{
-                                                                        dockerImage=docker.build("rishitareddy2811/currency-exchange:${env.BUILD_TAG}");
+                                                                        dockerImage=docker.build("rachanamadhav/currency-exchange:${env.BUILD_TAG}");
                                                           }
                                            }
                              }             
