@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'jave-docker-slave'
+    label 'java-docker-slave'
   }
   environment{ 
 		mavenHome = tool 'myMaven'
