@@ -2,17 +2,14 @@ pipeline {
   agent {
     label 'java-docker-slave'
   }
-  environment{ 
-		mavenHome = tool 'myMaven'
-		PATH = "$mavenHome/bin:$PATH"
-	}
-
                           
               stages{
               stage('Checkout') {
                              steps{   
                              sh 'mvn --version'
                              sh 'docker version'
+			     sh 'gcloud version'
+			     sh 'helm version'
                              echo "Build" 
                              echo "PATH - $PATH"
                              echo "BUILD_NUMBER - $env.BUILD_NUMBER"
