@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'java-docker-slave'
-  }
+  agent any
 	environment{ 
 		mavenHome = tool 'myMaven'
 		PATH = "$mavenHome/bin:$PATH"
@@ -31,6 +29,9 @@ pipeline {
             }
         }
                              stage('Package') {
+				     agent {
+                label 'java-docker-slave'
+                   }
             steps { 
                echo "Started creating jar file"
                                               sh "mvn clean install -DskipTests"
