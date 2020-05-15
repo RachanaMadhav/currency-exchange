@@ -9,7 +9,8 @@ pipeline {
                              sh 'mvn --version'
                              sh 'docker version'
 			     sh 'gcloud version'
-			     sh 'helm version'
+			     sh 'kubectl --client'	     
+			    # sh 'helm version'
                              echo "Build" 
                              echo "PATH - $PATH"
                              echo "BUILD_NUMBER - $env.BUILD_NUMBER"
